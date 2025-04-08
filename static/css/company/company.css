@@ -1,0 +1,251 @@
+@font-face {
+    font-family: Mont;
+    src: url(../../fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Forum;
+    src: url(../../fonts/Forum-Regular.ttf);
+}
+@font-face {
+    font-family: Actay-bold;
+    src: url(../../fonts/ActayWide-Bold.otf);
+}
+@font-face {
+    font-family: Actay;
+    src: url(../../fonts/Actay-Regular.otf);
+}
+@font-face {
+    font-family: Actay-ital;
+    src: url(../../fonts/Actay-RegularItalic.otf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.block-company{
+    display: flex;
+}
+.tab-content {
+    display: none;
+    padding: 20px;
+    /* border-left: 1px solid #ddd; */
+    height: 100vh;
+    width: 100%;
+    font-family: Actay;
+}
+.tab-content.active {
+    display: block;
+}
+
+.block-saide-bar .info-saide {
+    font-family: Mont;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.block-saide-bar .info-saide:hover {
+    background-color: rgba(71, 135, 232, 0.3);
+    color: #2f4f90;
+}
+
+.block-saide-bar .info-saide.active {
+    background-color: rgba(71, 135, 232, 0.5);
+    border-left: 4px solid #4775e8;
+    color: #1d347a;
+}
+
+.saide-bar{
+    border-radius: 10px;
+    position: fixed;
+    width: 240px;
+    height: 500px;
+    background-color: rgba(71, 135, 232, 0.153);
+    margin-left: 20px;
+    margin-top: 30px;
+    border: 2px solid black;
+}
+.text-bar{
+    font-family: Mont;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.info-transport-company{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+.line-hr{
+    border: none;
+    border-top: 2px solid #ddd;
+	border-bottom: 2px solid #000;
+	background: rgb(125, 157, 228);
+    height: 2px;
+}
+.avatar-info{
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+}
+.avatar-info img{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+.info-profile{
+    margin-left: 30px;
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    margin: 10px;
+}
+.review-saide{
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+}
+.rewiew-inf{
+    font-family: Forum;
+    font-size: 17px;
+    margin-left: 5px;
+}
+.rewiew-max{
+    font-family: Forum;
+    font-size: 17px;
+
+}
+.name-trans{
+    font-family: Mont;
+    font-size: 17px;
+}
+
+.content{
+    position: absolute;
+    left: 240px;
+}
+.name-block{
+    font-size: 26px;
+    font-family: Mont;
+    margin-left: 30px;
+}
+
+/* Стили для списка автобусов */
+.bus-list{
+    gap: 20px;
+    display: grid;
+}
+.bus{
+    display: flex;
+    margin-left: 30px;
+    width: 1000px;
+    height: 250px;
+    border: 2px solid #4775e8;
+    border-radius: 10px;
+}
+.bus-images img{
+    border-radius: 10px;
+    width: 270px;
+    height: 90%;
+    margin: 10px;
+}
+.add-bus-button{
+    width: 200px;
+    height: 40px;
+    background-color: #4775e8c0;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Actay;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 30px;
+    cursor: pointer;
+    align-items: center;
+}
+.add-bus-button:hover {
+    background-color: #1e58ebd6;
+}
+
+.bus-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 600px;
+}
+
+.bus-name {
+    font-size: 22px;
+    font-family: Actay-bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.bus-desc {
+    font-size: 14px;
+    color: #555;
+    font-family: Actay;
+}
+.bus-seats{
+    font-size: 16px;
+    font-family: Actay;
+}
+
+.bus-price {
+    font-size: 19px;
+    font-family: Actay-ital;
+}
+
+
+/* Добавление автобуса */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

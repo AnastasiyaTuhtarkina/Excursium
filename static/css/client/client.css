@@ -1,0 +1,430 @@
+@font-face {
+    font-family: Mont;
+    src: url(../../fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Forum;
+    src: url(../../fonts/Forum-Regular.ttf);
+}
+@font-face {
+    font-family: Actay-bold;
+    src: url(../../fonts/ActayWide-Bold.otf);
+}
+@font-face {
+    font-family: Actay;
+    src: url(../../fonts/Actay-Regular.otf);
+}
+@font-face {
+    font-family: Actay-ital;
+    src: url(../../fonts/Actay-RegularItalic.otf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.block-client {
+    display: flex;
+    width: 100%;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    height: 100vh;
+    width: 100%;
+    font-family: Actay;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.block-saide-bar {
+    font-family: Mont;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.block-saide-bar {
+    background-color: #E8E8E835;
+}
+
+
+.saide-bar{
+    border-radius: 10px;
+    position: fixed;
+    width: 300px;
+    height: 550px;
+    background-color: #F5F5F5;
+    margin-left: 20px;
+    margin-top: 30px;
+    /* border: 2px solid black; */
+}
+.text-bar, .name-client {
+    font-family: Actay-bold;
+    margin-top: 5px; 
+    font-size: 16px; 
+    font-weight: 600; 
+    text-align: center; /* Центруем текст */
+}
+
+.info-client {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 20px; 
+}
+
+.avatar-info {
+    margin-bottom: 10px; /* Отступ под аватаром */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Центруем элементы внутри контейнера */
+    text-align: center;
+}
+
+.avatar {
+    width: 156px; /* ширина аватара */
+    height: 156px; /* высота аватара */
+    border-radius: 50%; /* Делает изображение круглым */
+    border: 5px solid #E8E8E835;
+}
+
+.info-profile {
+    width: auto; /* Устанавливаем ширину автоматически */
+    text-align: center;
+    margin: 10px 0; /* Используем только вертикальные отступы */
+}
+
+* {
+    box-sizing: border-box; /* Учитываем границы и отступы в ширине элемента */
+}
+
+.block-saide-bar {
+    display: flex;
+    flex-direction: column; /* Вертикальная ориентация для кнопок */
+    margin: 30px; /* Отступы вокруг блока */
+    padding: 0px;
+}
+
+.info-saide {
+    display: block; /* Заставляем кнопки занимать всю ширину */
+    padding: 10px 15px; /* Отступы внутри кнопок */
+    margin-bottom: 20px; /* Отступ между кнопками */
+    background-color: #f0f0f0; /* Цвет кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 20px; /* Закругляем углы */
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+    width: 100%; /* Ширина кнопки на 100% */
+    font-family: Actay;
+    text-align: center; /* Выровнять текст по центру */
+    overflow: hidden; /* Принудительное скрытие переполнения */
+}
+
+.info-saide:hover,
+.info-saide.active {
+    background-color: #008EF1; /* Цвет кнопки, когда элемент активен */
+    color: white; /* Цвет текста для активной кнопки */
+}
+
+.review-saide{
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+}
+.rewiew-inf{
+    font-family: Forum;
+    font-size: 17px;
+    margin-left: 5px;
+}
+.rewiew-max{
+    font-family: Forum;
+    font-size: 17px;
+
+}
+.name-client{
+    font-family: Mont;
+    font-size: 17px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column; /* Основное направление вниз */
+    position: relative; /* Убедитесь, что указывает на поток документа */
+    padding: 20px;
+    width: calc(100% - 300px); /* Учитываем ширину боковой панели */
+}
+.name-block{
+    font-size: 26px;
+    font-family: Mont;
+    margin-left: 30px;
+}
+
+.content-area {
+    margin-left: 350px;
+    padding: 20px;
+}
+
+.tab-content {
+    display: none; /* Скрываем все секции по умолчанию */
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column; /* Вертикальное направление для отображения элементов */
+    padding: 20px;
+    width: 100%;
+}
+
+
+.tab-content.active {
+    display: block; /* Показываем только активную секцию */
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap; /* Обеспечивает перенос на новые строки при необходимости */
+    margin-bottom: 15px; /* Отступ между строками */
+}
+.form-group {
+    margin-bottom: 15px;
+    width: 35%;
+    min-width: 250px; /* Минимальная ширина группы */
+    margin-right: 50px; /* Отступ между элементами в строке */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+    border: 1px solid #D4D4D4; /* Цвет обводки */
+    border-radius: 8px; /* Скругление углов */
+}
+
+.form-group:last-child {
+    margin-right: 0; /* Убирает правый отступ у последнего элемента */
+}
+.submit-button {
+    float: right; /* Кнопка будет справа */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    font-size: 20px; /* Увеличенный размер шрифта */
+    border-radius: 20px !important; /* Скругление углов */
+    background-color: #008EF1; /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем стандартную обводку */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход при изменении цвета фона */
+    font-family: Actay;
+}
+
+button:hover {
+    background-color: #005BB5; /* Цвет кнопки при наведении */
+}
+
+.form-group input[type="radio"] {
+    margin-right: 5px; /* Отступ между кружочком и текстом */
+}
+
+.required {
+    color: red; /* Цвет звездочки */
+    margin-left: 5px; /* Отступ слева от звездочки */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Отступ между группами полей */
+}
+
+.gender-options {
+    display: flex; /* Используем Flexbox для размещения радиокнопок и меток в ряд */
+    margin-top: 5px; /* Отступ между заголовком и радиокнопками */
+}
+
+.gender-options div {
+    display: flex; /* Также используем Flexbox для каждой пары радио-кнопка и метка */
+    align-items: center; /* Центрируем по вертикали */
+    margin-right: 15px; /* Отступ между парами */
+}
+
+.gender-options div:last-child {
+    margin-right: 0; /* Убирает отступ у последнего элемента */
+}
+
+.flatpickr-calendar {
+    font-family: Actay !important;
+    background-color: #FCFCFC; /* Цвет фона календаря */
+    color: #000000; /* Цвет текста */
+}
+.flatpickr-day {
+    font-family: Actay;
+    background-color: #FCFCFC; /* Цвет фона для дней */
+    color: #000000; /* Цвет текста для дней */
+}
+.flatpickr-day.selected {
+    font-family: Actay;
+    background-color: #FC8587; /* Цвет фона для выбранного дня */
+    color: #000000; /* Цвет текста для выбранного дня */
+}
+.flatpickr-day:hover {
+    font-family: Actay;
+    background-color: #FC8587; /* Цвет фона при наведении */
+    color: #000000; /* Цвет текста при наведении */
+}
+
+.payment-section {
+    margin-top: 20px; /* Отступ сверху для секции способов оплаты */
+    width: 100%; /* Обеспечивает, что секция занимает всю ширину */
+    overflow: hidden; /* Прячем переполнение, если есть */
+}
+
+.line {
+    border-top: 2px solid #D4D4D4!important; /* Линия под заголовком */
+    width: 800px; /* Ширина линии */
+    margin: 0; /* Отступы сверху и снизу */
+}
+
+.payment-info {
+    display: flex; /* Установите flex-контейнер для выравнивания по одной строке */
+    align-items: center; /* Центрируем по вертикали */
+    margin-top: 35px; /* Отступ сверху при необходимости */
+}
+
+.payment-info img {
+    margin-left: 15px; /* Отступ между изображениями */
+    width: 45px; /* Ширина изображений (можно изменить) */
+    height: auto; /* Автоматическая высота */
+}
+
+.email {
+    color: #008EF1; /* Цвет текста почты */
+    font-weight: bold; /* Жирный текст (по желанию) */
+}
+
+.status {
+    display: inline-block; /* Чтобы окошко было в одном ряду с почтой */
+    background-color: #008700; /* Цвет фона окошка */
+    color: white; /* Цвет текста внутри окошка */
+    padding: 5px 10px; /* Отступы внутри окошка */
+    border-radius: 15px; /* Закругленные углы окошка */
+    margin-left: 10px; /* Отступ между почтой и окошком */
+}
+
+.new-email {
+    font-size: 20px; /* Увеличенный размер шрифта для строки "Введите новый адрес электронной почты" */
+    display: block; /* Чтобы строка была на отдельной строке */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+#email {
+    width: 100%; /* Окно ввода на всю ширину */
+    padding: 10px; /* Отступы внутри окна ввода */
+    margin-bottom: 10px; /* Отступ снизу */
+    font-size: 16px; /* Размер шрифта в окне ввода */
+    border-radius: 15px;
+    border: 2px solid #D4D4D4; /* Цвет обводки */
+}    
+
+.hint {
+    color: rgb(150, 148, 148); 
+    font-size: 14px; /* Размер шрифта для подсказки */
+    font-style: italic;
+    display: block; /* Чтобы подсказка была на отдельной строке */
+    margin-bottom: 10px; /* Отступ снизу */
+    margin-top: 0;
+    
+}
+
+#password, #new_password, #confirm_password {
+    width: 100%; /* Окно ввода на всю ширину */
+    padding: 10px; /* Отступы внутри окна ввода */
+    margin-bottom: 10px; /* Отступ снизу */
+    margin-top: 10px;
+    font-size: 16px; /* Размер шрифта в окне ввода */
+    border-radius: 15px;
+    border: 2px solid #D4D4D4; /* Цвет обводки */
+}   
+
+input::placeholder {
+    color: gray; /* Цвет текста */
+    font-family: Actay;
+    font-size: 14px; /* Размер шрифта */
+    /* Добавьте другие стили по необходимости */
+}
+
+h3 {
+    margin-top: 100px;
+}
+
+.social-media {
+    display: flex;                      /* Используем Flexbox */
+    justify-content: space-between;    /* Располагаем элементы с равным расстоянием между ними */
+    align-items: center;               /* Вертикально центрируем элементы */
+    padding: 0;                     /* Отступ вокруг контейнера */
+}
+
+.social-item {
+    display: flex;                     /* Flex-контейнер для каждого элемента */
+    align-items: center;               /* Вертикально центрируем изображение и текст */
+    text-decoration: none;             /* Убираем подчеркивание ссылок */
+    color: #000;                       /* Цвет текста (можно изменять) */
+    border: 1px solid #D4D4D4;
+    border-radius: 15px;
+    padding: 10px;
+    flex: 1;
+    margin: 10px;
+}
+
+.social-item img {
+    width: 36.53px;                       /* Ширина иконки (можно изменять) */
+    height: 36.53px;                      /* Высота иконки (можно изменять) */
+    margin-right: 10px;                /* Отступ между иконкой и текстом */
+}
+
+.social-item:hover {
+    color: #007BFF;                    /* Цвет текста при наведении (можно изменять) */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;    /* Центрируем кнопку горизонтально */
+    margin-top: 80px;          /* Отступ сверху для отделения кнопки от других элементов */
+}
+
+.delete-account-button {
+    font-weight: bold;
+    border: none;
+    background-color: #E9605A;
+    color: #FFFFFF;
+    font-family: Actay;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 40px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    width: 300px;
+    height: 42px;
+}
+
+.delete-account-button:hover {
+    background-color: darkred;         /* Темно-красный фон при наведении */
+}
+
+.button-container::after {
+    content: "";
+    display: block;
+    height: 100px;  /* Можно настроить высоту пустого пространства */
+}
+
+
+

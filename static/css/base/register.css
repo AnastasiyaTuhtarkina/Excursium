@@ -1,0 +1,115 @@
+@font-face {
+    font-family: Mont;
+    src: url(../../fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Forum;
+    src: url(../../fonts/Forum-Regular.ttf);
+}
+.reg-page{
+    display: flex;
+}
+.reg-img-1 img{
+    margin-top: 130px;
+    width: 400px;
+    height: 400px;
+}
+.reg-img-2 img{
+    margin-top: 130px;
+    width: 400px;
+    height: 400px;
+}
+
+.reg-text{
+    text-align: center;
+    font-size: 24px;
+    font-family: Mont;
+}
+.text-info{
+    font-family: Forum;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.register-cont {
+    width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.сhange-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 30px;
+    margin-left: 90px;
+}
+.сhange-buttons button{
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    font-family: Mont;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;    
+}
+сhange-buttons button :hover{
+    background-color: #0056b3;
+}
+.register-form{
+    display: grid;
+    margin-left: 80px;
+}
+.register-form label {
+    font-family: Forum;
+    font-size: 21px;
+}
+
+.register-form input, textarea, select {
+    width: 80%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.client-form button[type="submit"] {
+    font-family: Mont;
+    margin-left: 0px;
+    width: 75%;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-left: 80px;
+    border-radius: 9px;
+}
+.company-form button[type="submit"] {
+    font-family: Mont;
+    margin-left: 30px;
+    width: 75%;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-left: 80px;
+    border-radius: 9px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.company-form{
+    display: none;
+}
+.political-text{
+    margin-left: 0px !important;
+}

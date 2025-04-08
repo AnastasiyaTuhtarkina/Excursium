@@ -1,0 +1,196 @@
+@font-face {
+    font-family: Mont;
+    src: url(../../fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: Forum;
+    src: url(../../fonts/Forum-Regular.ttf);
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    background:linear-gradient(to bottom, rgba(0, 0, 0, 0) 85%, rgb(71, 135, 232));
+    align-items: center;
+}
+.text-logo{
+    font-size: 32px;
+    font-family: Mont;
+    margin-left: 20px;
+}
+.text-logo a{
+    text-decoration: none;
+    color: black;
+}
+.header-menu{
+    position: absolute;
+    display: flex;
+    font-size: 19px;
+    font-family: Forum;
+    gap: 30px;
+    left: 40%;
+}
+.login-menu{
+    align-items: center;
+    display: flex;
+    margin-right: 30px;
+    gap: 0px;
+}
+.login-menu button{
+    border: none;
+    font-size: 15px;
+    font-family: Mont;
+    background-color: white;
+    cursor: pointer;
+}
+.login-menu img{
+    width: 40px;
+    height: 40px;
+}
+.avatar-header{
+    position: absolute;
+    right: 250px;
+}
+.avatar-header img{
+    width: 40px;
+    border-radius: 20px;
+    border: 1px solid rgb(126, 216, 221);
+}
+.block-user{
+    position: absolute;
+    top: 13px;
+    right: 70px;
+    text-align: center;
+}
+.test-rol{
+    font-family: Forum;
+    font-size: 16px;
+}
+.name-user{
+    font-family: Mont;
+    font-size: 18px;
+}
+.but-logout{
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.but-logout img{
+    width: 50px;
+}
+
+/* Окно входа */
+
+.modal-login{
+    display: flex;
+    position: absolute;
+    display: none;
+    width: 1149px;
+    height: 646px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid rgb(122, 153, 221);
+    transform: translate(-50%, -50%);
+    top: 500%;
+    left: 50%;
+}
+.login-image{
+    width: 559px;
+    width: 646px;
+}
+.login-block{
+    width: 559px;
+    width: 646px;
+}
+.exit-login-modal{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+.exit-login-modal img{
+    width: 20px;
+}
+.block-reg{
+    display: flex;
+    justify-content: space-between;
+}
+.lost-pass{
+    margin-left: 40px;
+    font-family: Forum;
+    font-size: 17px;
+}
+.lost-pass a{
+    text-decoration: none;
+    color: #007bff;
+}
+.reg-login{
+    font-size: 17px;
+    font-family: Forum;
+    margin-right: 44px;
+    display: flex;
+    gap: 10px;
+}
+.text-reg{
+    color: rgb(106, 103, 103);
+}
+.reg-a a{
+    text-decoration: none;
+    color: #007bff;
+}
+.login-text{
+    font-family: Mont;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.login-form label {
+    font-family: Forum;
+    font-size: 22px;    
+}
+.login-form{ 
+    display: grid;
+    margin-left: 40px;
+    margin-top: 30px;
+}    
+
+.login-form input, textarea, select, button[type="submit"] {
+    width: 401px;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.modal-login button[type="submit"]{
+    font-family: Mont;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 401px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+.political-text{
+    margin-top: 30px;
+    color: rgb(106, 103, 103);;
+    font-family: Forum;
+    font-size: 19px;
+    text-align: center;
+    margin-left: 20px;
+}
+.political-text a{
+    text-decoration: none;
+    color: #007bff;
+}

@@ -1,0 +1,149 @@
+@font-face {
+    font-family: Actay;
+    src: url(../../fonts/Actay-Regular.otf);
+}
+@font-face {
+    font-family: Forum;
+    src: url(../../fonts/Forum-Regular.ttf);
+}
+
+.body {
+    font-family: Actay;
+}
+/* .info-profile{
+    margin-left: 30px;
+    width: 70px;
+    height: 60px;
+    text-align: center;
+}
+.review-saide{
+    display: flex;
+    justify-content: space-between;
+}
+.rewiew-inf{
+    font-family: Forum;
+    font-size: 17px;
+    margin-left: 5px;
+}
+.name-trans{
+    font-family: Mont;
+    font-size: 17px;
+}
+
+.info-saide {
+    padding: 10px; /* Добавьте отступы для удобства */
+    /* cursor: pointer; /* Изменяет стиль курсора при наведении */
+
+
+.comfort-container {
+    display: flex;
+    align-items: center; /* выравнивает по центру по вертикали */
+}
+
+.inline-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex; /* Используем Flexbox для выстраивания в ряд */
+    flex-wrap: wrap;
+}
+
+.inline-list li {
+    margin-right: 15px; /* Добавляем отступы между элементами */
+    width: auto; /* максимальная ширина элемента */
+}
+
+
+.comfort-image {
+    width: 20px; /* адаптивное изображение */
+    height: 20px;
+    object-fit: cover; 
+    margin-right: 5px;
+}
+
+#content {
+    width: 90%;
+}
+
+.service-box {
+    font-family: Actay;
+    display: inline-block; /* Изменяет поведение блока */
+    border: 1px solid #ccc; /* Цвет рамки */
+    padding: 10px; /* Внутренние отступы */
+    margin: 15px 10px; /* Отступы между рамками */
+    border-radius: 10px; /* Скругление углов */
+    background-color: #F2F2F2; /* Цвет фона */
+}
+    
+.green-box {
+    background-color: #43BA47; /* Задаем зеленый цвет фона */
+    font-family: Actay;
+    color: white;            /* Задаем белый цвет текста */
+    padding: 10px;          /* Внутренние отступы */
+    border-radius: 10px;     /* Скругление углов */
+    display: inline-block;   /* Позволяет установить размеры встраиваемого блока */
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.toggle {
+    color: #008EF1;
+    cursor: pointer;
+}
+
+
+.A { grid-area: i;}
+.B { grid-area: m;}
+.C { 
+    grid-area: o;
+    margin-bottom: 20px;
+}
+.D { grid-area: b;}
+.E { grid-area: n;}
+.F { grid-area: f;}
+.G { grid-area: p;}
+
+.container {
+    display: grid;
+    border-radius: 5px; /*Скругляем углы на 5 пикселей */
+    font-family: Actay;
+    grid-gap: 10px;
+    padding: 20px; 
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: space-around;
+    align-content: space-around;
+    justify-self: stretch;
+    align-self: stretch;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 1.5fr 1fr;
+    grid-template-areas: "i i i m o o"
+                         "i i i m o o"
+                         "i i i b b b"
+                         "i i i b b b"
+                         "n n n f f f"
+                         "n n n f f f"
+                         "n n n p p p";
+}            
+
+
+
+
+
+
+/* .container {
+    display: grid;  
+    grid-template: repeat(10, 1fr) / repeat(6, 1fr) ;
+    column-gap: 1%;
+    row-gap: 1%;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: space-around;
+    align-content: space-around;
+    justify-self: stretch;
+    align-self: stretch;
+
+} */
+
+.hidden {
+    display: none;
+}
