@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Company</title>
+    <link rel="stylesheet" href="../static/css/company/company.css">
+</head>
+{% include 'base/header.html' %}
+<body>
+    <div class="block-company">
+        <div class="saide-bar">
+            <div class="text-bar">Транспортная компания</div>
+            <div class="info-transport-company">
+                <div class="avatar-info">
+                    {% if avatar %}
+                    <img src="{{ avatar }}" alt="Profile">
+                    {% else %}
+                    <img src="../static/media/header/avatar.png" class="Profile">
+                    {% endif %}
+                </div>
+                <div class="info-profile">
+                    <div class="name-trans">
+                        <b>{{ name }}</b>
+                    </div>
+                    <div class="review-saide">
+                        <img src="../static/media/company/star.svg">
+                        <div class="rewiew-inf">4.9</div>
+                        <div>/</div>
+                        <div class="rewiew-max">179</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="line-hr">
+            <div class="block-saide-bar">
+                <div class="info-saide" data-tab="buses">Мои автобусы</div>
+                <div class="info-saide" data-tab="orders">Заказы</div>
+                <div class="info-saide" data-tab="history">История заказов</div>
+                <div class="info-saide" data-tab="reviews">Отзывы</div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="buses" class="tab-content active">
+                <div class="name-block">Мои автобусы</div>
+                <div class="bus-list">
+                <button id="add-bus-btn" class="add-bus-button">Добавить автобус</button>
+                {% for bus in user.company_profile.buses.all %}
+                <div class="bus">
+                    <div class="bus-images">
+                    {% if bus.image %}
+                    <img src="{{ bus.image.url }}" alt="Bus Image">
+                    {% else %}
+                    <img src="../static/media/company/bus.jpg">
+                    {% endif %}
+                    </div>
+                    <div class="bus-info">
+                        <div class="bus-name">{{ bus.name }}</div>
+                        <div class="bus-desc">{{ bus.description }}</div>
+                        <div class="bus-seats">Количество мест: {{ bus.seats }}</div>
+                        <div class="bus-price">Цена за день: {{ bus.price_per_day }}</div>
+                        <div>{{ bus.features }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+            <div id="add-bus-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close-modal" class="close">&times;</span>
+                    <h2>Добавить автобус</h2>
+                    <form action="{% url 'add_bus' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div>
+                            <label for="bus-name">Название автобуса:</label>
+                            <input type="text" id="bus-name" name="name" required>
+                        </div>
+                        <div>
+                            <label for="bus-seats">Количество мест:</label>
+                            <input type="number" id="bus-seats" name="seats" required>
+                        </div>
+                        <div>
+                            <label for="bus-price">Цена за день:</label>
+                            <input type="number" step="0.01" id="bus-price" name="price_per_day" required>
+                        </div>
+                        <div>
+                            <label for="bus-description">Описание:</label>
+                            <textarea id="bus-description" name="description"></textarea>
+                        </div>
+                        <div>
+                            <label for="bus-image">Фото автобуса:</label>
+                            <input type="file" id="bus-image" name="image">
+                        </div>
+                        <button type="submit" class="submit-button">Добавить</button>
+                    </form>
+                </div>
+            </div>
+            <div id="orders" class="tab-content">
+                <h2>Заказы</h2>
+                <!-- Содержимое для заказов -->
+            </div>
+            <div id="history" class="tab-content">
+                <h2>История заказов</h2>
+                <!-- Содержимое для истории -->
+            </div>
+            <div id="reviews" class="tab-content">
+                <h2>Отзывы</h2>
+                <!-- Содержимое для отзывов -->
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/company/company.js"></script>
+</body>
+</html>

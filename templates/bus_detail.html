@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bus.name }}</title>
+    <link rel="stylesheet" href="../../static/css/bus/bus.css">
+</head>
+{% include 'base/header.html' %}
+<body>
+
+    <div class="container">
+
+        <div class="A">
+            <img style= 'width: 95%;' src="{{ bus.photo.url }}" alt="{{ bus.name }}" />
+        </div>
+
+        <div class="B">
+            <img src="../../static/media/avatar_company/image_13.jpg"> 
+        </div>
+
+        <div class="C">
+            <b>Название</b>
+            <br>
+            <div class="green-box">
+            <strong>Хорошая компания</strong>
+            </div>
+            <br>
+            работает с 2005г.
+            <br>
+            <br>
+            <div style="display: flex;">
+                <img src="../../static/media/company/star.svg" alt="Star">
+                <img src="../../static/media/company/star.svg" alt="Star">
+                <img src="../../static/media/company/star.svg" alt="Star">
+                <img src="../../static/media/company/star.svg" alt="Star">
+                <img src="../../static/media/company/star.svg" alt="Star">
+                4.9
+            </div>  
+         </div>
+        
+        <div class="D"> 
+            <div class="service-box">
+            Заказ №3665415 <img src="../../static/media/company/star.svg"> 
+            <br> <br>   
+            Заказывали микроавтобус для спортивного мероприятия. Прибыл во время, водитель вежливый. В автобусе чистота. 
+            Доехали быстро победили всех и с настроением вернулись. Отличная автобусная контора! Спасибо.
+            </div>
+        </div>    
+
+        <div class="E">
+            <h1>{{ bus.name }}</h1> <p>от {{ bus.rental_price_per_hour }} руб/час</p>
+            <div id="content">
+                <span id="text">{{ bus.description|truncatechars:100 }}</span>
+                <span id="more" class="hidden" style="display: none;">{{ bus.description }}</span>
+                <span style="color: #008EF1;" class="toggle" onclick="toggleText()">Подробнее</span>
+            </div>
+            <h2 style="display: inline;">Мест :    </h2>
+            <span>{{ bus.seats_count }}</span>
+            
+            <ul class="inline-list">
+                <li><h2 style="display: inline;">Удобства :  </h2></li>
+                {% for comfort in bus.comforts.all %}
+                    <img src="{{ comfort.image.url }}" alt="{{ comfort.name }}" class="comfort-image">
+                    <li>{{ comfort.name }}</li>
+                {% endfor %}
+            </ul>
+            <p1 style="color: #008EF1;">Правила поведения в транспорте</p1>
+        </div>    
+       
+        
+        <div class="F">
+            <h2>Дополнительные услуги</h2>
+                {% if services %}
+                    {% for service in services %}
+                        <div class="service-box">
+                            {{ service }} {# Убираем лишние пробелы #}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Нет дополнительных услуг.</p>
+                {% endif %}
+        </div>
+
+        <div class="G">
+            <button type="submit" style="background-color: #008EF1; color: #FFFFFF; width: 100%; border: none; border-radius: 10px; padding: 10px; cursor: pointer;">
+                Расчитать стоимость
+            </button>
+        {% comment %} <form method="post" action="{% url 'calculate_rental' %}">
+            {% csrf_token %}
+            <label for="hours">Количество часов:</label>
+            <input type="number" id="hours" name="hours" min="1" required>
+            <input type="hidden" name="bus_id" value="{{ bus.id }}">
+            <button type="submit">Расчитать стоимость</button>
+        </form> {% endcomment %}
+        </div> 
+    </div>
+<script src="../../static/js/bus.js"></script>
+</body>
+</html>

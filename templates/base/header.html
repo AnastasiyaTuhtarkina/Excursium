@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/base/header.css">
+</head>
+    <header>
+        <div class="text-logo">
+            <a href="{% url 'home' %}">ЭкускурсиУм BUS</a>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-1">
+                О нас
+            </div>
+            <div class="header-menu-2">
+                Все автобусы
+            </div>
+            <div class="header-menu-3">
+                Еще
+            </div>
+        </div>
+        {% if not user.is_authenticated %}
+        <div class="login-menu">
+            <div class="login">
+                <button id="but-login" class="but-login">
+                Войти
+                </button>
+            </div>
+            <div class="slash-login">
+                <img src="../../static/media/header/Slash.svg">
+            </div>
+            <div class="register">
+                <a href="{% url 'register' %}">
+                <button id="but-reg" class="but-reg">
+                Регистрация
+                </button>
+                </a>
+            </div>
+        </div>
+        <div id="modal-login" class="modal-login">
+            <div class="login-image">
+                <img src="../../static/media/registrations/sig.svg">
+            </div>
+            <div class="login-block">
+            <div class="login-text">
+                Вход
+            </div>
+            <div id="exit-login-modal" class="exit-login-modal">
+                <img src="../../static/media/header/exit.png">
+            </div>
+            <div class="input-form">
+            <form method="post">
+                {% csrf_token %}
+                <div class="login-form">
+                <label for="id_email">Почта</label>
+                {{ login_form.username }}
+                <label for="id_password">Пароль</label>
+                {{ login_form.password }}
+                </div>
+                <div class="block-reg">
+                    <div class="lost-pass">
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+                    <div class="reg-login">
+                        <div class="text-reg">
+                            Первый раз?
+                        </div>
+                        <div class="reg-a">
+                            <a href="{% url 'register' %}">Создать аккаунт</a>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Войти</button>
+            </form>
+            <div class="political-text">
+                Нажимая на кнопку "Войти", вы даёте согласие на</br>
+                обработку своих персональных данных согласно</br> 
+                <a href="#">Политике обработки персональных данных</a> данного</br>
+                сервиса и принимаете условия</br>
+                <a href="#">Пользовательского соглашения</a>
+            </div>
+            </div>
+            </div>
+        </div>
+        {% else %}
+            {% if avatar %}
+            <div class="avatar-header">
+        <img src="{{ avatar }}" alt="Аватарка" class="user-avatar">
+            </div>
+                {% else %}
+                <div class="avatar-header">
+        <img src="../../static/media/header/avatar.png" class="none-avatar">
+                </div>
+                {% endif %}
+        <div class="block-user">
+            <div class="user-info">
+                <div class="test-rol">{{ user.get_role_display }}</div>
+                <div class="name-user">{{ name }}</div>
+            </div>
+        </div>
+        <div class="logout">
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button id="but-logout" class="but-logout">
+                    <img src="../../static/media/header/logout.png">
+                </button>
+            </form>
+        </div>
+        {% endif %}
+    </header>
+    <script src="../../static/js/base/header.js"></script>
+{% block content %}
+{% endblock %}    

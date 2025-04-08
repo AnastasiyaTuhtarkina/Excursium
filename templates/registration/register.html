@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'css/base/register.css' %}">
+</head>
+{% include 'base/header.html' %}
+{% block content %}
+<body>
+    <div class="reg-page">
+        <div class="reg-img-1">
+            <img src="{% static 'media/registrations/reg1.jpg' %}" alt="Регистрация">
+        </div>
+        <div class="register-cont">
+            <div class="reg-text">Регистрация</div>
+            <div class="сhange-buttons">
+                <button id="client-btn">Клиент</button>
+                <button id="company-btn">Транспортная компания</button>
+            </div>
+
+            <!-- Форма регистрации клиента -->
+            <div id="client-form" class="client-form">
+                <div class="text-info">Регистрация клиента</div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="register-form">
+                        <input type="hidden" name="register_client" value="true">
+
+                        <label for="id_email">Почта</label>
+                        {{ client_form.email }}
+                        {% if client_form.email.errors %}
+                            <div class="error">{{ client_form.email.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_password1">Пароль</label>
+                        {{ client_form.password1 }}
+                        {% if client_form.password1.errors %}
+                            <div class="error">{{ client_form.password1.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_password2">Подтверждение пароля</label>
+                        {{ client_form.password2 }}
+                        {% if client_form.password2.errors %}
+                            <div class="error">{{ client_form.password2.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_name">Имя клиента</label>
+                        {{ client_form.name }}
+                        {% if client_form.name.errors %}
+                            <div class="error">{{ client_form.name.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+
+            <!-- Форма регистрации компании -->
+            <div id="company-form" class="company-form">
+                <div class="text-info">Регистрация транспортной компании</div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="register-form">
+                        <input type="hidden" name="register_company" value="true">
+
+                        <label for="id_email">Почта</label>
+                        {{ company_form.email }}
+                        {% if company_form.email.errors %}
+                            <div class="error">{{ company_form.email.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_password1">Пароль</label>
+                        {{ company_form.password1 }}
+                        {% if company_form.password1.errors %}
+                            <div class="error">{{ company_form.password1.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_password2">Подтверждение пароля</label>
+                        {{ company_form.password2 }}
+                        {% if company_form.password2.errors %}
+                            <div class="error">{{ company_form.password2.errors }}</div>
+                        {% endif %}
+                        <label for="id_status">Статус компании</label>
+                        {{ company_form.status }}
+                        {% if company_form.status.errors %}
+                            <div class="error">{{ company_form.status.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_company_name">Название компании</label>
+                        {{ company_form.company_name }}
+                        {% if company_form.company_name.errors %}
+                            <div class="error">{{ company_form.company_name.errors }}</div>
+                        {% endif %}
+
+                        <label for="id_description">Описание компании</label>
+                        {{ company_form.description }}
+                        {% if company_form.description.errors %}
+                            <div class="error">{{ company_form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+            <div class="political-text">
+                Нажимая на кнопку "Войти", вы даёте согласие на<br>
+                обработку своих персональных данных согласно<br> 
+                <a href="#">Политике обработки персональных данных</a> данного<br>
+                сервиса и принимаете условия<br>
+                <a href="#">Пользовательского соглашения</a>
+            </div>
+        </div>
+        <div class="reg-img-2">
+            <img src="{% static 'media/registrations/reg-bus.jpg' %}" alt="Регистрация">
+        </div>
+    </div>
+    <script src="../../static/js/register/register.js"></script>
+</body>
+{% endblock %}
+</html>

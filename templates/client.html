@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../static/css/client/client.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script> <!-- Подключение локализации -->
+</head>
+{% include 'base/header.html' %}
+<body>
+    <div class="block-client">
+        <div class="saide-bar">
+            <div class="info-client">
+                <div class="avatar-info">
+                    {% if avatar %}
+                    <img src="{{ avatar }}" alt="Profile" class="avatar">
+                    {% else %}
+                    <img src="../static/media/header/avatar.png" class="avatar" alt="Default Avatar">
+                    {% endif %}   
+                </div>
+
+                <div class="text-bar">{{ user.username }}</div> <!-- Имя пользователя здесь -->
+
+                <div class="info-profile">
+                    <div class="name-client">
+                        <b>{{ name }}</b>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="block-saide-bar">
+                <div class="info-saide" data-tab="profile">Мой профиль</div>
+                <div class="info-saide" data-tab="orders">Заказы</div>
+                <div class="info-saide" data-tab="reviews">Отзывы</div>
+                <div class="info-saide" data-tab="settings">Настройки</div>
+            </div>
+        </div>
+        <div class="content-area">
+            <div id="profile" class="tab-content" style="display: none;">
+                <h2>Персональные данные</h2>
+                <form id="profile-form">
+                    <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">Имя <span class="required">*</span></label>
+                        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last_name">Фамилия <span class="required">*</span></label>
+                        <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name">Отчество</label>
+                        <input type="text" id="middle-name" name="middle-name" value="{{ user.middle_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Номер телефона</label>
+                        <input type="tel" id="phone_number" name="phone_number" value="{{ user.phone_number }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Дата рождения</label>
+                        <input type="text" id="datePicker" placeholder="Выберите дату">
+                    </div>
+                    <div class="form-group">
+                        <label>Пол</label>
+                        <div class="gender-options">
+                            <div>
+                                <input type="radio" id="male" name="gender" value="male" {% if user.gender == 'male' %}checked{% endif %}>
+                                <label for="male">мужской</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="female" name="gender" value="female" {% if user.gender == 'female' %}checked{% endif %}>
+                                <label for="female">женский</label>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <button type="submit" class="submit-button">Сохранить данные</button>
+                </form>
+        
+            </div>
+            <div class="payment-section">
+                <h2>Способы оплаты</h2>
+                <div class="line"></div>
+                <div class="payment-info">
+                    <span>Банковские карты </span>
+                    <img src="../static/media/client/MasterCard.png" alt="MasterCard">
+                    <img src="../static/media/client/Visa.png" alt="Visa">
+                    <img src="../static/media/client/Mir.png" alt="Мир">
+                </div>
+            </div>
+        
+        </div>
+        <div id="orders" class="tab-content" style="display: none;">
+            <h2>Заказы</h2>
+            <!-- Содержимое для заказов -->
+        </div>
+        
+        <div id="reviews" class="tab-content" style="display: none;">
+            <h2>Отзывы</h2>
+            <!-- Содержимое для отзывов -->
+        </div>
+        
+        <div id="settings" class="tab-content" style="display: none;">
+            <h2>Обновление почты</h2>
+            <div class="line"></div>
+            <p>Ваш текущий адрес электронной почты <span class="email">{{ user.email }}</span>
+                <span class="status">Почта подтверждена</span>
+            </p>
+            <span class="new-email">Введите новый адрес электронной почты</span>
+            <input type="text" id="email" name="email" value="{{ user.email }}">
+            <span class="hint">После нажатия кнопки "Обновить почту" Вам будет выслан код на новую почту для подтверждения</span>
+            <div style="margin-top: 10px;"> <!-- Добавьте отступ сверху -->
+                <button type="submit" class="submit-button">Обновить почту</button>
+            </div>
+           
+            <!-- Содержимое для настроек -->
+            <h3>Изменить пароль</h3> <!-- Добавьте отступ сверху -->
+            <div class="line"></div><br>
+            <input type="text" id="password" name="current_password" placeholder="Текущий пароль">
+            <span class="hint">Оставьте это поле пустым, если пароль не был задан раннее</span>
+            <input type="text" id="new_password" name="new_password" placeholder="Новый пароль">
+            <span class="hint">Пароль должен быть длинной не меньше 6 символов</span>
+            <input type="text" id="confirm_password" name="confirm_password" placeholder="Новый пароль еще раз">
+            <div style="margin-top: 10px;"> <!-- Добавьте отступ сверху -->
+                <button type="submit" class="submit-button">Изменить пароль</button>
+            </div>
+            <h3>Социальные сети</h3>
+            <div class="line"></div><br>
+            <span class="social">Привяжите свой аккаунт к одной из социальных сетей для более быстрого входа</span>
+            <div class="social-media">
+                <a href="https://www.vk.com" class="social-item">
+                    <img src="../static/media/client/VK.png" alt="VK">
+                    <span>VКонтакте</span>
+                </a>
+                <a href="https://www.yandex.ru" class="social-item">
+                    <img src="../static/media/client/Ynd.png" alt="Yandex">
+                    <span>Яндекс</span>
+                </a>
+                <a href="https://www.ok.ru" class="social-item">
+                    <img src="../static/media/client/Ok.png" alt="Ok">
+                    <span>Одноклассники</span>
+                </a>
+                <a href="https://www.mail.ru" class="social-item">
+                    <img src="../static/media/client/Mail.png" alt="Mail">
+                    <span>Mail.ru</span>
+                </a>
+            </div>
+            <div class="button-container">
+                <button class="delete-account-button">Удалить аккаунт</button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/client/client.js"></script>
+</body>
+</html>
